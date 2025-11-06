@@ -1,0 +1,216 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #4f8cff 0%, #6ed6ff 100%);
+    color: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Navigation Bar */
+nav {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 1rem 0;
+    transition: max-height 0.3s;
+}
+.nav-links li a {
+    text-decoration: none;
+    color: #4f8cff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+.nav-links li a:hover,
+.nav-links li a:focus {
+    background: #eaf4ff;
+    outline: none;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.2rem;
+}
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #4f8cff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Sections */
+section {
+    max-width: 1100px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    padding: 2rem;
+}
+section h2 {
+    font-size: 2rem;
+    color: #4f8cff;
+    margin-bottom: 1rem;
+}
+
+/* About Me */
+#about {
+    text-align: center;
+}
+#about p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 0.5rem;
+}
+
+/* Projects */
+#projects .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+.project-card {
+    background: #f9fbfd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+    padding: 1.5rem;
+    width: 300px;
+    transition: transform 0.2s;
+}
+.project-card:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+.project-card h3 {
+    color: #4f8cff;
+    margin-bottom: 0.5rem;
+}
+.project-card p {
+    color: #555;
+}
+.project-card a {
+    color: #6ed6ff;
+    text-decoration: underline;
+}
+
+/* Skills Section */
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+}
+#skills li {
+    position: relative;
+    padding-left: 2.5rem;
+    font-size: 1.1rem;
+}
+#skills li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eaf4ff;
+}
+#skills li.html::before { content: "🌐"; }
+#skills li.css::before { content: "🎨"; }
+#skills li.js::before { content: "⚡"; }
+#skills li.csharp::before { content: "💻"; }
+#skills li.react::before { content: "⚛️"; }
+
+/* Contact Section */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+#contact input,
+#contact textarea {
+    padding: 0.7rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 4px;
+}
+#contact button {
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    .nav-links.active {
+        max-height: 500px;
+        padding: 1rem 0;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
